@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/blog.css";
 
-const Post = ({post, onEdit}) => {
+const Post = ({post, onEdit, postId}) => {
     return (
         <div className="blog-post">
             <div className="blog-post-image">
@@ -11,13 +12,15 @@ const Post = ({post, onEdit}) => {
                 <p>{post.updatedAt}</p>
                 <h1>{post.title}</h1>
                 <p>{post.body}</p>
-                <a href = "#">Read More</a>
+                <Link to={`post/${postId}`}>Read More</Link>
             </div>
-            <button
+            <Link
+            to="/create-post">
+            <button style={{height: 40, borderRadius: 6, borderColor: "black"}}
             onClick={()=> onEdit()}
             >Edit
-
             </button>
+            </Link>
         </div>
 
     );

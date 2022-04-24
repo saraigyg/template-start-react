@@ -1,19 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/blog.css";
 
-const NavBar = ({onPress}) => {
+const NavBar = () => {
     return(
         <div className="blog-post-navbar">
             <div className="blog-post-brand">
-                <a href="https://itjuana.com/"> 
+                <Link to="/"> 
                 <img src="https://itjuana.com/wp-content/uploads/ITJ_tm-logo.png" alt="itjuana-img" 
                 width = {80} height = {80}/>
-                </a>
+                </Link>
             </div>
             <ul>
-                <li className="blog-post-navbar"><a href ="#">Join our team</a></li>
-                <li className="blog-post-navbar"><a href ="#">Contact us</a></li>
-                <li className="blog-post-navbar"><button onClick={()=>onPress()}>Create new post</button></li>
+                <li className="blog-post-navbar"><Link to ="/join-our-team">Join our team</Link></li>
+                <li className="blog-post-navbar"><Link to ="/contact-us">Contact us</Link></li>
+                <li className="blog-post-navbar"><Link to="/create-post">Create new post</Link></li>
             </ul>
         </div>
 
