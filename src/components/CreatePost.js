@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../styles/forms.css";
+import { Link } from "react-router-dom";
 
-const CreatePost = ({onPress, onSave, postToUpdate}) => {
+const CreatePost = ({ onSave, postToUpdate}) => {
 
     const newPost = {
         title: "",
@@ -25,7 +26,7 @@ const CreatePost = ({onPress, onSave, postToUpdate}) => {
         <div className="container">
             <form id="create-post-form" className="post-form">
                 <div className="input-field">
-                    <label>Title</label>
+                    <label>Post title</label>
                     <input
                     type = "text"
                     name = "title"
@@ -35,8 +36,9 @@ const CreatePost = ({onPress, onSave, postToUpdate}) => {
                     />
                 </div>
                 <div className="input-field">
-                    <label>Body</label>
-                    <textarea 
+                    <label>Post content</label>
+                    <textarea
+                    style={{ height: "100px"}} 
                     type = "text"
                     name = "body"
                     placeholder="Add a body to the post"
@@ -45,25 +47,25 @@ const CreatePost = ({onPress, onSave, postToUpdate}) => {
                     />
                 </div>
                 <div className="input-field">
-                    <label>Image</label>
+                    <label>Post image url</label>
                     <input
                     type = "text"
                     name = "imageUrl"
+                    placeholder="Add an image"
                     value = {newPostState.imageUrl}
                     onChange={handleOnChange}
                     />
                 </div>
                 <div className="buttons-container">
-                    <button
-                    type="button"
-                    onClick={()=> onPress()}
+                    <Link
+                    to="/"
                     >Cancel
-                    </button>
-                    <button
-                    type="button"
+                    </Link>
+                    <Link
+                    to="/"
                     onClick={() => onSave(newPostState)}
-                    >Save
-                    </button>
+                    >Save post
+                    </Link>
                 </div>   
             </form>
         </div>

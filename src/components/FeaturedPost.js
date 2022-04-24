@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/blog.css";
 
 const FeaturedPost = ({image, title, updatedAt, content, blogLink, width, height}) => {
@@ -11,7 +12,7 @@ const FeaturedPost = ({image, title, updatedAt, content, blogLink, width, height
                 <p>{updatedAt}</p>
                 <h1>{title}</h1>
                 <p>{content}</p>
-                <a href = {blogLink}>Read More</a>
+                <Link to={blogLink}>Read More</Link>
             </div>
         </div>
     );
